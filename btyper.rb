@@ -11,7 +11,7 @@ class Btyper < Formula
   # resource "biopython" do
   #	url "http://biopython.org/wiki/Download/biopython-1.69.tar.gz"
   #	sha1
-  #end
+  # end
   bottle :unneeded
     def install
     bin.install "btyper"
