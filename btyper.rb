@@ -13,6 +13,6 @@ class Btyper < Formula
   bottle :unneeded
   
   def install
-    bin.install "btyper.py"
+    bin.install "btyper"
   end
 end
