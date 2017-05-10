@@ -13,7 +13,7 @@ class Btyper < Formula
   #	sha1
   # end
   bottle :unneeded
-    def install
+  def install
     bin.install "btyper"
-    end
+  end
 end
