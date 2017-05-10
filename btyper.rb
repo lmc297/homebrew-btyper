@@ -14,6 +14,6 @@ class Btyper < Formula
 	#end
 	bottle :unneeded
 	def install
-		bin.install "Btyper"
+		bin.install "btyper"
 	end
 end
