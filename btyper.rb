@@ -13,6 +13,6 @@ class Btyper < Formula
   bottle :unneeded
   
   def install
-    bin.install "btyper"
+    bin.install "btyper", "seq_virulence_db"
   end
 end
