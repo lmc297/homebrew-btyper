@@ -21,15 +21,4 @@ class Btyper < Formula
     bin.install "btyper", "seq_virulence_db", "seq_mlst_db", "seq_panC_db", "seq_rpoB_db", "seq_16s_db"
     
   end
-  require 'rubygems/package'
-  require 'zlib'
-  tar_extract = Gem::Package::TarReader.new(Zlib::GzipReader.open('~/Downloads/biopython-1.69.tar.gz'))
-  tar_extract.rewind
-  tar_extract.each do |entry|
-    puts entry.full_name
-    puts entry.directory?
-    puts entry.file?
-  end
-  `python ~/Downloads/biopython-1.69/setup.py build`
-  `sudo python ~/Downloads/biopython-1.69/setup.py install`
 end
