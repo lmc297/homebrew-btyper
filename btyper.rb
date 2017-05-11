@@ -9,6 +9,11 @@ class Btyper < Formula
   depends_on "blast"
   depends_on "spades"
   depends_on "sratoolkit"
+  depends_on "numpy"
+  resource "biopython" do
+    url "http://biopython.org/wiki/Download/biopython-1.69.tar.gz"
+    sha256 "e89a94071b716d7bb7e97db898b33ad3afecfa8a53fa4e5b57f8e4259956c29d"
+  end
   
   bottle :unneeded
   
