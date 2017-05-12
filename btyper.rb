@@ -20,10 +20,10 @@ class Btyper < Formula
    
   def install
     bin.install "btyper", "seq_virulence_db", "seq_mlst_db", "seq_panC_db", "seq_rpoB_db", "seq_16s_db"
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
+    ENV.append "LDFLAGS", "-shared" if OS.linux?
     %w[biopython].each do |r|
       resource(r).stage do
-      system "python", *Language::Python.setup_install_args(libexec/"vendor")
+      system "python", *Language::Python.setup_install_args(libexec)
       end
     end
   end
