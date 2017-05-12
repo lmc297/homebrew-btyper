@@ -7,6 +7,11 @@ class BtyperBiopython < Formula
   depends_on :python
   depends_on "numpy"
   
+  resource "biopython" do
+    url "http://biopython.org/DIST/biopython-1.66.tar.gz"
+    sha256 "5178ea3b343b1d8710f39205386093e5369ed653aa020e1b0c4b7622a59346c1"
+  end
+  
   
   bottle :unneeded 
    
