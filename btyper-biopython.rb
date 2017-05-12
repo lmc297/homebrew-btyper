@@ -16,7 +16,7 @@ class BtyperBiopython < Formula
   bottle :unneeded 
    
   def install
-    inreplace "setupext.py", "'darwin': ['/usr/local/'", "'darwin': ['#{HOMEBREW_PREFIX}'"
+    inreplace "setup.py", "'darwin': ['/usr/local/'", "'darwin': ['#{HOMEBREW_PREFIX}'"
     Language::Python.each_python(build) do |python, version|
     bundle_path = libexec/"lib/python2.7/site-packages"
     bundle_path.mkpath
