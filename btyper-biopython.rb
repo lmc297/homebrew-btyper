@@ -21,8 +21,9 @@ class BtyperBiopython < Formula
     ENV.prepend "PYTHONPATH", libexec, ':'
     ENV.prepend "PYTHONPATH", libexec/"src", ':'
     for python_package in ["biopython", "scipy"]
-    resource(python_package).stage do
+      resource(python_package).stage do
         system "python", *Language::Python.setup_install_args(libexec)
+      end
     end
     libexec.install Dir["*"]
     bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
