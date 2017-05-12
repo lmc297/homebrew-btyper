@@ -26,5 +26,9 @@ class Btyper < Formula
       system "python", *Language::Python.setup_install_args(libexec/"vendor")
       end
     end
+    ENV.prepend_create_path "PYTHONPATH", libexec
+    libexec.install Dir["biopython"]
+    bin.install "biopython"
+    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
   end
 end
