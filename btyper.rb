@@ -26,5 +26,6 @@ class Btyper < Formula
       system "python", *Language::Python.setup_install_args(libexec)
       end
     end
+    bin.env_script_all_files(prefix, :PYTHONPATH => ENV["PYTHONPATH"])
   end
 end
