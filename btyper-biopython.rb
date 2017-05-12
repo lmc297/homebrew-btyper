@@ -16,15 +16,19 @@ class BtyperBiopython < Formula
   bottle :unneeded 
    
   def install
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
-    %w[biopython].each do |r|
+    inreplace "setupext.py", "'darwin': ['/usr/local/'", "'darwin': ['#{HOMEBREW_PREFIX}'"
+    Language::Python.each_python(build) do |python, version|
+    bundle_path = libexec/"lib/python2.7/site-packages"
+    bundle_path.mkpath
+    ENV.prepend_path "PYTHONPATH", bundle_path
+    resources.map(&:name).to_set
+    res.each do |r|
       resource(r).stage do
-        system "python", *Language::Python.setup_install_args(libexec/"vendor")
+        system python, *Language::Python.setup_install_args(libexec)
       end
     end
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
-    system "python", *Language::Python.setup_install_args(libexec)
-    bin.install Dir[libexec/"bin/*"]
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    (lib/"python2.7/site-packages/homebrew-btyper-biopython-bundle.pth").write "#{bundle_path}\n"
+
+    system python, *Language::Python.setup_install_args(prefix)
   end
 end
