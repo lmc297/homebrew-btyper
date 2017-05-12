@@ -10,23 +10,9 @@ class Btyper < Formula
   depends_on "spades"
   depends_on "sratoolkit"
   
-  resource "biopython" do
-    url "http://biopython.org/DIST/biopython-1.69.tar.gz"
-    sha256 "169ffa90c3d3ec5678c7a5c99501c0cfeb54c40ca51a619ce6cee5026d3403eb"
-  end
- 
   bottle :unneeded 
    
   def install
-    ENV.prepend_create_path "PYTHONPATH", libexec/"btyper/lib/python2.7/site-packages"
-    %w[biopython].each do |r|
-      resource(r).stage do
-        system "python", *Language::Python.setup_install_args(libexec/"btyper")
-      end
-    end
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
-    system "python", *Language::Python.setup_install_args(libexec)
-    bin.install "btyper", "seq_virulence_db", "seq_mlst_db", "seq_panC_db", "seq_rpoB_db", "seq_16s_db", Dir[libexec/"bin/*"]
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    bin.install "btyper", "seq_virulence_db", "seq_mlst_db", "seq_panC_db", "seq_rpoB_db", "seq_16s_db"
   end
 end
