@@ -30,5 +30,6 @@ class BtyperBiopython < Formula
     (lib/"python2.7/site-packages/homebrew-btyper-biopython-bundle.pth").write "#{bundle_path}\n"
 
     system python, *Language::Python.setup_install_args(prefix)
+    end
   end
 end
