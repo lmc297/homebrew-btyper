@@ -14,16 +14,6 @@ class Btyper < Formula
     url "http://biopython.org/wiki/Download/biopython-1.69.tar.gz"
     sha256 "e89a94071b716d7bb7e97db898b33ad3afecfa8a53fa4e5b57f8e4259956c29d"
   end
-  require 'rubygems/package'
-  require 'zlib'
-  tar_extract = Gem::Package::TarReader.new(Zlib::GzipReader.open('~/Downloads/biopython-1.69.tar.gz'))
-  tar_extract.rewind
-  tar_extract.each do |entry|
-    puts entry.full_name
-    puts entry.directory?
-    puts entry.file?
-  end
-  tar_extract.close
     
   bottle :unneeded
   
