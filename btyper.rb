@@ -17,17 +17,11 @@ class Btyper < Formula
   end
  
   bottle :unneeded
+  
+  include Language::Python::Virtualenv
    
   def install
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
-    ENV.prepend_create_path 'PYTHONPATH', libexec/"lib64/python2.7/site-packages"
-    %w[biopython].each do |r|
-      resource(r).stage do
-      system "python", *Language::Python.setup_install_args(libexec)
-      end
-    end
-    bin.install Dir["btyper"]
-    # bin.install "btyper", "seq_virulence_db", "seq_mlst_db", "seq_panC_db", "seq_rpoB_db", "seq_16s_db"
-    bin.env_script_all_files(prefix, :PYTHONPATH => ENV["PYTHONPATH"])
+    bin.install "btyper", "seq_virulence_db", "seq_mlst_db", "seq_panC_db", "seq_rpoB_db", "seq_16s_db"
+    virtualenv_install_with_resources
   end
 end
