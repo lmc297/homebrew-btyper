@@ -24,13 +24,18 @@ class Btyper < Formula
     ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
     ENV.prepend "PYTHONPATH", libexec, ':'
     ENV.prepend "PYTHONPATH", libexec/"src", ':'
+    puts "done with env"
     # for python_package in ["biopython"]
     resource("biopython").stage do
       system "python", *Language::Python.setup_install_args(libexec)
+      puts "done with python"
     end
+    puts "done with resource"
     # end
     libexec.install Dir["*"]
+    puts "done with libexecinstall"
     bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    puts "done with errthing"
     
 
   end
