@@ -9,6 +9,7 @@ class Btyper < Formula
   depends_on "blast"
   depends_on "spades"
   depends_on "sratoolkit"
+  depends_on "numpy"
   
   resource "biopython" do
     url "http://biopython.org/DIST/biopython-1.69.tar.gz"
@@ -22,7 +23,7 @@ class Btyper < Formula
     ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
     ENV.prepend "PYTHONPATH", libexec, ':'
     ENV.prepend "PYTHONPATH", libexec/"src", ':'
-    for python_package in ["numpy","biopython", "scipy", "pandas", "biom", "pyparsing", "cycler", "dateutil"]
+    for python_package in ["biopython"]
       resource(python_package).stage do
         system "python2", *Language::Python.setup_install_args(libexec)
       end
