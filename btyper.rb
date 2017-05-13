@@ -35,7 +35,6 @@ class Btyper < Formula
     puts "done with libexecinstall"
     bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
     bin.env_script_all_files(libexec/"lib/python2.7/site-packages/Bio", :PYTHONPATH => ENV["PYTHONPATH"])
-    bin.env_script_all_files(libexec/"lib64/python2.7/site-packages", :PYTHONPATH => ENV["PYTHONPATH"])
 
     puts "done with errthing"
     
