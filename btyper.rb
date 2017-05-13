@@ -20,7 +20,6 @@ class Btyper < Formula
    
   def install
     bin.install "btyper", "seq_virulence_db", "seq_mlst_db", "seq_panC_db", "seq_rpoB_db", "seq_16s_db"
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib64/python2.7/site-packages"
     ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
     ENV.prepend "PYTHONPATH", libexec, ':'
     ENV.prepend "PYTHONPATH", libexec/"src", ':'
@@ -32,7 +31,7 @@ class Btyper < Formula
     end
     puts "done with resource"
     # end
-    libexec.install Dir["*"]
+    libexec.install Dir["Bio"]
     puts "done with libexecinstall"
     bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
     bin.env_script_all_files(libexec/"lib/python2.7/site-packages/Bio", :PYTHONPATH => ENV["PYTHONPATH"])
