@@ -25,7 +25,7 @@ class Btyper < Formula
     ENV.prepend "PYTHONPATH", libexec/"src", ':'
     for python_package in ["biopython"]
       resource(python_package).stage do
-        system "python2", *Language::Python.setup_install_args(libexec)
+        system "python", *Language::Python.setup_install_args(libexec)
       end
     end
     libexec.install Dir["*"]
