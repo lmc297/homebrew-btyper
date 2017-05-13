@@ -19,6 +19,7 @@ class Btyper < Formula
   bottle :unneeded 
    
   def install
+    bin.install "btyper", "seq_virulence_db", "seq_mlst_db", "seq_panC_db", "seq_rpoB_db", "seq_16s_db"
     ENV.prepend_create_path "PYTHONPATH", libexec/"lib64/python2.7/site-packages"
     ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
     ENV.prepend "PYTHONPATH", libexec, ':'
@@ -30,7 +31,7 @@ class Btyper < Formula
     end
     libexec.install Dir["*"]
     bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
-    bin.install "btyper", "seq_virulence_db", "seq_mlst_db", "seq_panC_db", "seq_rpoB_db", "seq_16s_db"
+    
 
   end
 end
