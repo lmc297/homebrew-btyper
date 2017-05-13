@@ -13,7 +13,7 @@ class Btyper < Formula
   
   resource "biopython" do
     url "http://biopython.org/DIST/biopython-1.69.tar.gz"
-    sha256 "169ffa90c3d3ec5678c7a5c99501c0cfeb54c40ca51a619ce6cee5026d3403eb"
+    sha256 "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
   end
   
   bottle :unneeded 
