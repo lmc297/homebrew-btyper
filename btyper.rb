@@ -18,7 +18,18 @@ class Btyper < Formula
   bottle :unneeded 
    
   def install
+    ENV.prepend_create_path "PYTHONPATH", libexec/"lib64/python2.7/site-packages"
+    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
+    ENV.prepend "PYTHONPATH", libexec, ':'
+    ENV.prepend "PYTHONPATH", libexec/"src", ':'
+    for python_package in ["numpy","biopython", "scipy", "pandas", "biom", "pyparsing", "cycler", "dateutil"]
+      resource(python_package).stage do
+        system "python2", *Language::Python.setup_install_args(libexec)
+      end
+    end
+    libexec.install Dir["*"]
+    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
     bin.install "btyper", "seq_virulence_db", "seq_mlst_db", "seq_panC_db", "seq_rpoB_db", "seq_16s_db"
-    resource("biopython").stage { bin.install "/Library/Python/2.7/site-packages" }
+
   end
 end
