@@ -26,17 +26,8 @@ class Btyper < Formula
     # for python_package in ["biopython"]
     resource("biopython").stage do
       system "python", *Language::Python.setup_install_args(libexec)
-      puts "done with python"
     end
-    puts "done with resource"
-    # end
-    # libexec.install Dir["*"]
-    puts "done with libexecinstall"
-    # bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
-    # bin.env_script_all_files(libexec/"lib/python2.7/site-packages/Bio", :PYTHONPATH => ENV["PYTHONPATH"])
 
-    puts "done with errthing"
-    
 
   end
 end
