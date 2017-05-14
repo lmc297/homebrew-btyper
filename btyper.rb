@@ -9,7 +9,6 @@ class Btyper < Formula
   depends_on "blast"
   depends_on "spades"
   depends_on "sratoolkit"
-  depends_on "numpy"
   
   resource "biopython" do
     url "http://biopython.org/DIST/biopython-1.69.tar.gz"
