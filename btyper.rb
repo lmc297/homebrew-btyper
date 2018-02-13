@@ -5,7 +5,7 @@ class Btyper < Formula
   sha256 "68a4fd547f5be272de49e7f5abde2ba022c76458ebdb04cb7d22b4d1db385c4a"
   version "2.0.3"
   
-  depends_on :python
+  depends_on "python"
   depends_on "blast"
   depends_on "spades"
   depends_on "sratoolkit"
