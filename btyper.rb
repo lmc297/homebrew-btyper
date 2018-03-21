@@ -1,7 +1,7 @@
 class Btyper < Formula
   desc "A command line tool for classifying Bacillus cereus group isolates from nucleotide sequencing data"
   homepage "https://github.com/lmc297/BTyper/"
-  url "https://github.com/lmc297/BTyper/raw/master/archive/btyper-2.1.0.tar.gz"
+  url "https://github.com/lmc297/BTyper/raw/master/archive/btyper-2.2.0.tar.gz"
   sha256 "81fc40f7d15cfa2844884c4945cae4044721e8e7420e85997d5d8a5bdd63c63b"
   version "2.1.0"
   
