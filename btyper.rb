@@ -13,7 +13,7 @@ class Btyper < Formula
   bottle :unneeded 
    
   def install
-    bin.install "btyper", "seq_virulence_db", "seq_mlst_db", "seq_panC_db", "seq_rpoB_db", "seq_16s_db", "seq_amr_db"
+    bin.install "btyper", "seq_virulence_db", "seq_mlst_db", "seq_panC_db", "seq_rpoB_db", "seq_16s_db", "seq_amr_db", "seq_plasmid_db"
     puts "done with env"
 
 
